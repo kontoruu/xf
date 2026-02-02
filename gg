@@ -1660,9 +1660,9 @@ function getHTML() {
                     
                     <!-- Pair Filter -->
                     <div class="pair-filter">
-                        <button class="pair-filter-btn active" onclick="setPairFilter('all')">ALL</button>
-                        <button class="pair-filter-btn" onclick="setPairFilter('idr')">IDR PAIRS</button>
-                        <button class="pair-filter-btn" onclick="setPairFilter('usdt')">USDT PAIRS</button>
+                        <button class="pair-filter-btn active" onclick="setPairFilter('all', event)">ALL</button>
+                        <button class="pair-filter-btn" onclick="setPairFilter('idr', event)">IDR PAIRS</button>
+                        <button class="pair-filter-btn" onclick="setPairFilter('usdt', event)">USDT PAIRS</button>
                     </div>
                     
                     <!-- Filter Controls -->
@@ -1912,7 +1912,7 @@ function getHTML() {
         }
         
         // Set pair filter
-        function setPairFilter(type) {
+        function setPairFilter(type, event) {
             activePairFilter = type;
             document.querySelectorAll('.pair-filter-btn').forEach(btn => {
                 btn.classList.remove('active', 'idr-active', 'usdt-active');
