@@ -333,26 +333,30 @@ function analyzeSignalAdvanced(ticker, avgVolume, timeframe = '1h') {
   const finalScore = Math.min(score, 100);
   
   // Determine recommendation based on score and type
-  let recommendation = 'HOLD';
+  let recommendation = 'NEUTRAL';
   if (type === 'BUY') {
     if (finalScore >= 90) {
-      recommendation = 'BUY NOW';
+      recommendation = 'BUY NOW';           // Eksekusi segera
     } else if (finalScore >= 70) {
-      recommendation = 'BUY STRONG';
-    } else if (finalScore >= 40) {
-      recommendation = 'HOLD';
+      recommendation = 'BUY STRONG';        // Sinyal kuat
+    } else if (finalScore >= 50) {
+      recommendation = 'PREPARING BUY';     // Bersiap masuk
+    } else if (finalScore >= 30) {
+      recommendation = 'NEUTRAL';           // Tidak ada sinyal jelas
     } else {
-      recommendation = 'HOLD SIDEWAY';
+      recommendation = 'NO ACTION';         // Hindari trading
     }
   } else if (type === 'SELL') {
     if (finalScore >= 90) {
-      recommendation = 'SELL NOW';
+      recommendation = 'SELL NOW';          // Eksekusi segera
     } else if (finalScore >= 70) {
-      recommendation = 'SELL STRONG';
-    } else if (finalScore >= 40) {
-      recommendation = 'HOLD';
+      recommendation = 'SELL STRONG';       // Sinyal kuat
+    } else if (finalScore >= 50) {
+      recommendation = 'PREPARING SELL';    // Bersiap keluar
+    } else if (finalScore >= 30) {
+      recommendation = 'NEUTRAL';           // Tidak ada sinyal jelas
     } else {
-      recommendation = 'HOLD SIDEWAY';
+      recommendation = 'NO ACTION';         // Hindari trading
     }
   }
   
@@ -840,6 +844,22 @@ function getHTML() {
         .recommendation-badge.sell-now {
             background: #ef4444;
             color: white;
+        }
+        .recommendation-badge.preparing-buy {
+            background: #84cc16;
+            color: white;
+        }
+        .recommendation-badge.preparing-sell {
+            background: #fb923c;
+            color: white;
+        }
+        .recommendation-badge.neutral {
+            background: #6b7280;
+            color: white;
+        }
+        .recommendation-badge.no-action {
+            background: #374151;
+            color: #9ca3af;
         }
         .loading {
             text-align: center;
