@@ -945,6 +945,210 @@ function getHTML() {
             display: block;
         }
         
+        /* ============================================================
+           PAIR FILTER STYLES
+           ============================================================ */
+        .pair-filter {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .pair-filter-btn {
+            padding: 8px 16px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #9ca3af;
+            font-size: var(--font-sm);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .pair-filter-btn:hover {
+            border-color: #4ade80;
+            color: #4ade80;
+        }
+        .pair-filter-btn.active {
+            background: #4ade80;
+            color: #0f0f1e;
+            border-color: #4ade80;
+        }
+        .pair-filter-btn.idr-active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .pair-filter-btn.usdt-active {
+            background: #fbbf24;
+            color: #0f0f1e;
+            border-color: #fbbf24;
+        }
+        
+        /* ============================================================
+           FILTER CONTROLS STYLES
+           ============================================================ */
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            padding: 15px;
+            background: #0f0f1e;
+            border-radius: 8px;
+            border: 1px solid #2a2a3e;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .filter-group label {
+            font-size: var(--font-sm);
+            color: #9ca3af;
+        }
+        .filter-group select {
+            padding: 8px 12px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: var(--font-sm);
+            cursor: pointer;
+        }
+        .filter-group select:focus {
+            outline: none;
+            border-color: #4ade80;
+        }
+        
+        /* ============================================================
+           WATCHLIST STYLES
+           ============================================================ */
+        .watchlist-btn {
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #6b7280;
+            transition: all 0.2s;
+            padding: 5px;
+        }
+        .watchlist-btn:hover {
+            color: #fbbf24;
+            transform: scale(1.2);
+        }
+        .watchlist-btn.active {
+            color: #fbbf24;
+        }
+        
+        /* ============================================================
+           RISK BADGE STYLES
+           ============================================================ */
+        .risk-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: var(--font-xs);
+            font-weight: bold;
+        }
+        .risk-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+        .risk-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid #f59e0b;
+        }
+        .risk-low {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+        
+        /* ============================================================
+           TARGETS INFO STYLES
+           ============================================================ */
+        .targets-info {
+            background: #0f0f1e;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+        .target-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: var(--font-sm);
+        }
+        .target-label {
+            color: #9ca3af;
+        }
+        .target-value {
+            font-weight: 600;
+        }
+        .target-row.stop-loss {
+            border-bottom: 1px solid #2a2a3e;
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+        }
+        
+        /* ============================================================
+           REFRESH CONTROLS STYLES
+           ============================================================ */
+        .refresh-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .refresh-controls label {
+            color: #9ca3af;
+            font-size: var(--font-sm);
+        }
+        .refresh-controls select {
+            padding: 6px 12px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: var(--font-sm);
+        }
+        .refresh-btn, .pause-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #2a2a3e;
+            cursor: pointer;
+            font-size: var(--font-sm);
+            transition: all 0.2s;
+        }
+        .refresh-btn {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
+        }
+        .refresh-btn:hover {
+            background: #16a34a;
+        }
+        .pause-btn {
+            background: #1a1a2e;
+            color: #9ca3af;
+        }
+        .pause-btn:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+        .pause-btn.paused {
+            background: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
             table { font-size: 12px; }
@@ -1379,7 +1583,21 @@ function getHTML() {
             </h1>
             <p class="subtitle">Real-time cryptocurrency market with Signal Analysis</p>
             <p class="usdt-rate" id="usdtRate">💱 USDT/IDR Rate: Loading...</p>
-            <p class="refresh-info" id="refreshInfo">⏱️ Auto refresh: 5s (Pauses during interaction)</p>
+            <p class="refresh-info" id="refreshInfo">⏱️ Auto refresh: 10s (Active)</p>
+            
+            <!-- Refresh Controls -->
+            <div class="refresh-controls">
+                <label>Auto Refresh:</label>
+                <select id="refreshInterval">
+                    <option value="5000">5 detik</option>
+                    <option value="10000" selected>10 detik</option>
+                    <option value="30000">30 detik</option>
+                    <option value="60000">1 menit</option>
+                    <option value="0">Manual</option>
+                </select>
+                <button id="refreshNowBtn" class="refresh-btn" onclick="refreshNow()">🔄 Refresh Now</button>
+                <button id="pauseRefreshBtn" class="pause-btn" onclick="togglePause()">⏸️ Pause</button>
+            </div>
         </div>
         
         <div id="loading" class="loading">⏳ Loading market data...</div>
@@ -1408,6 +1626,10 @@ function getHTML() {
             <div class="tabs">
                 <div class="tab active" onclick="switchTab('signals', event)">🎯 Signal Analysis</div>
                 <div class="tab" onclick="switchTab('overview', event)">📈 Market Overview</div>
+                <div class="tab" onclick="switchTab('watchlist', event)">
+                    ⭐ Watchlist
+                    <span class="count-badge" id="watchlistCount">0</span>
+                </div>
                 <div class="tab" onclick="switchTab('gainers', event)">
                     🚀 Top Gainers
                     <span class="count-badge" id="gainersCount">0</span>
@@ -1433,6 +1655,46 @@ function getHTML() {
                         </div>
                         <div class="signal-tab" id="sellSignalTab" onclick="switchSignalTab('sell')">
                             🔴 Sell Signals - <span id="sellSignalsCount">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Pair Filter -->
+                    <div class="pair-filter">
+                        <button class="pair-filter-btn active" onclick="setPairFilter('all')">ALL</button>
+                        <button class="pair-filter-btn" onclick="setPairFilter('idr')">IDR PAIRS</button>
+                        <button class="pair-filter-btn" onclick="setPairFilter('usdt')">USDT PAIRS</button>
+                    </div>
+                    
+                    <!-- Filter Controls -->
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label>Min Volume (IDR):</label>
+                            <select id="minVolumeFilter" onchange="updateFilters()">
+                                <option value="0">All</option>
+                                <option value="100000000">100 Juta+</option>
+                                <option value="500000000">500 Juta+</option>
+                                <option value="1000000000">1 Milyar+</option>
+                                <option value="5000000000">5 Milyar+</option>
+                                <option value="10000000000">10 Milyar+</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Signal Type:</label>
+                            <select id="signalTypeFilter" onchange="updateFilters()">
+                                <option value="all">All Signals</option>
+                                <option value="buy">BUY Only</option>
+                                <option value="sell">SELL Only</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Min Score:</label>
+                            <select id="minScoreFilter" onchange="updateFilters()">
+                                <option value="0">All Scores</option>
+                                <option value="30">30+</option>
+                                <option value="50">50+</option>
+                                <option value="70">70+</option>
+                                <option value="90">90+</option>
+                            </select>
                         </div>
                     </div>
                     
@@ -1495,6 +1757,29 @@ function getHTML() {
                                 <tbody id="sellSignalsBody"></tbody>
                             </table>
                         </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="watchlist" class="content-section">
+                <div class="table-card">
+                    <div class="table-title">⭐ Watchlist - <span id="watchlistTableCount">0</span> Pairs</div>
+                    <input type="text" id="searchWatchlist" class="search-box" placeholder="🔍 Search watchlist..." onkeyup="filterWatchlistTable()">
+                    <div class="table-wrapper" onscroll="handleScroll()" onmouseenter="pauseAutoRefresh()" onmouseleave="resumeAutoRefresh()">
+                        <table id="watchlistTable">
+                            <thead>
+                                <tr>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 0, 'string')">⭐</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 1, 'string')">Pair</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 2, 'number')">Last Price</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 3, 'number')">24h Change</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 4, 'number')">24h High</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 5, 'number')">24h Low</th>
+                                    <th class="sortable" onclick="sortTable('watchlistTable', 6, 'number')">Volume</th>
+                                </tr>
+                            </thead>
+                            <tbody id="watchlistBody"></tbody>
+                        </table>
                     </div>
                 </div>
             </div>
@@ -1601,12 +1886,190 @@ function getHTML() {
         let sortStates = {};
         let activeSorts = {}; // Track active sorting: { tableId: { column: number, direction: 'asc'|'desc', type: 'number'|'string' } }
         let countdownInterval;
-        let secondsUntilRefresh = 5;
+        let secondsUntilRefresh = 10;
         let selectedTimeframe = '1h';
         let activeSignalTab = 'buy';  // default to buy signals
         let isPaused = false;
         let lastInteractionTime = Date.now();
         let scrollTimeout;
+        
+        // New feature variables
+        let activePairFilter = 'all'; // all, idr, usdt
+        let minVolumeFilter = 0;
+        let signalTypeFilter = 'all'; // all, buy, sell
+        let minScoreFilter = 0;
+        let watchlist = JSON.parse(localStorage.getItem('indodax_watchlist') || '[]');
+        let signalHistory = JSON.parse(localStorage.getItem('indodax_signal_history') || '{}');
+        let refreshIntervalId = null;
+        let refreshInterval = parseInt(localStorage.getItem('indodax_refresh_interval') || '10000');
+        
+        // Filter by pair type
+        function filterByPairType(tickers, pairType) {
+            if (pairType === 'all') return tickers;
+            if (pairType === 'idr') return tickers.filter(t => t.pair.endsWith('_idr'));
+            if (pairType === 'usdt') return tickers.filter(t => t.pair.endsWith('_usdt') || t.pair.includes('usdt'));
+            return tickers;
+        }
+        
+        // Set pair filter
+        function setPairFilter(type) {
+            activePairFilter = type;
+            document.querySelectorAll('.pair-filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'idr-active', 'usdt-active');
+            });
+            if (type === 'all') {
+                event.target.classList.add('active');
+            } else if (type === 'idr') {
+                event.target.classList.add('idr-active');
+            } else if (type === 'usdt') {
+                event.target.classList.add('usdt-active');
+            }
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
+        
+        // Watchlist functions
+        function toggleWatchlist(pair) {
+            const index = watchlist.indexOf(pair);
+            if (index > -1) {
+                watchlist.splice(index, 1);
+            } else {
+                watchlist.push(pair);
+            }
+            localStorage.setItem('indodax_watchlist', JSON.stringify(watchlist));
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
+        
+        function isInWatchlist(pair) {
+            return watchlist.includes(pair);
+        }
+        
+        // Signal history tracking
+        function recordSignal(pair, signal, price, timestamp) {
+            if (!signalHistory[pair]) {
+                signalHistory[pair] = [];
+            }
+            signalHistory[pair].push({
+                signal: signal,
+                price: price,
+                timestamp: timestamp,
+                outcome: null
+            });
+            if (signalHistory[pair].length > 100) {
+                signalHistory[pair] = signalHistory[pair].slice(-100);
+            }
+            localStorage.setItem('indodax_signal_history', JSON.stringify(signalHistory));
+        }
+        
+        function calculateWinRate(pair) {
+            const history = signalHistory[pair] || [];
+            if (history.length < 5) return null;
+            
+            const wins = history.filter(h => h.outcome === 'win').length;
+            const total = history.filter(h => h.outcome !== null).length;
+            
+            return total > 0 ? ((wins / total) * 100).toFixed(1) : null;
+        }
+        
+        // Risk level calculator
+        function calculateRiskLevel(ticker, avgVolume) {
+            let riskScore = 0;
+            
+            // Volatility check
+            const volatility = ((ticker.high - ticker.low) / ticker.low) * 100;
+            if (volatility > 20) riskScore += 3;
+            else if (volatility > 10) riskScore += 2;
+            else if (volatility > 5) riskScore += 1;
+            
+            // Volume check
+            const volumeRatio = ticker.volume / avgVolume;
+            if (volumeRatio < 0.5) riskScore += 2;
+            else if (volumeRatio < 1) riskScore += 1;
+            
+            // Spread check
+            if (ticker.buy > 0 && ticker.sell > 0) {
+                const spread = ((ticker.sell - ticker.buy) / ticker.buy) * 100;
+                if (spread > 5) riskScore += 2;
+                else if (spread > 2) riskScore += 1;
+            }
+            
+            // Determine risk level
+            if (riskScore >= 5) return { level: 'HIGH', color: '#ef4444', icon: '🔴' };
+            if (riskScore >= 3) return { level: 'MEDIUM', color: '#f59e0b', icon: '🟡' };
+            return { level: 'LOW', color: '#22c55e', icon: '🟢' };
+        }
+        
+        // Target price & stop loss calculator
+        function calculateTargets(ticker, signal) {
+            const currentPrice = ticker.last;
+            const atr = ticker.high - ticker.low;
+            
+            if (signal.type === 'BUY') {
+                return {
+                    entry: currentPrice,
+                    stopLoss: currentPrice - (atr * 1.5),
+                    target1: currentPrice + (atr * 1),
+                    target2: currentPrice + (atr * 2),
+                    target3: currentPrice + (atr * 3),
+                    riskReward: '1:2'
+                };
+            } else {
+                return {
+                    entry: currentPrice,
+                    stopLoss: currentPrice + (atr * 1.5),
+                    target1: currentPrice - (atr * 1),
+                    target2: currentPrice - (atr * 2),
+                    target3: currentPrice - (atr * 3),
+                    riskReward: '1:2'
+                };
+            }
+        }
+        
+        // Refresh interval functions
+        function setRefreshInterval(interval) {
+            refreshInterval = interval;
+            if (refreshIntervalId) {
+                clearInterval(refreshIntervalId);
+            }
+            if (interval > 0 && !isPaused) {
+                refreshIntervalId = setInterval(() => loadMarketData(true), interval);
+            }
+            localStorage.setItem('indodax_refresh_interval', interval);
+        }
+        
+        function togglePause() {
+            isPaused = !isPaused;
+            const btn = document.getElementById('pauseRefreshBtn');
+            if (isPaused) {
+                if (refreshIntervalId) clearInterval(refreshIntervalId);
+                btn.innerHTML = '▶️ Resume';
+                btn.classList.add('paused');
+            } else {
+                setRefreshInterval(refreshInterval);
+                btn.innerHTML = '⏸️ Pause';
+                btn.classList.remove('paused');
+            }
+        }
+        
+        function refreshNow() {
+            loadMarketData(false);
+        }
+        
+        function refreshNow() {
+            loadMarketData(false);
+        }
+        
+        function updateFilters() {
+            minVolumeFilter = parseInt(document.getElementById('minVolumeFilter').value);
+            signalTypeFilter = document.getElementById('signalTypeFilter').value;
+            minScoreFilter = parseInt(document.getElementById('minScoreFilter').value);
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
         
         function switchSignalTab(tab) {
             activeSignalTab = tab;
@@ -1682,7 +2145,7 @@ function getHTML() {
                 document.getElementById('results').style.display = 'block';
                 document.getElementById('loading').style.display = 'none';
                 
-                secondsUntilRefresh = 5;
+                secondsUntilRefresh = Math.floor(refreshInterval / 1000);
                 
             } catch (error) {
                 console.error('Error:', error);
@@ -1698,15 +2161,16 @@ function getHTML() {
         }
         
         function updateCountdown() {
-            if (!isPaused) {
+            if (!isPaused && refreshInterval > 0) {
                 secondsUntilRefresh--;
                 if (secondsUntilRefresh <= 0) {
-                    secondsUntilRefresh = 5;
+                    secondsUntilRefresh = Math.floor(refreshInterval / 1000);
                     loadMarketData(true);
                 }
             }
+            const status = isPaused ? ' (Paused)' : (refreshInterval === 0 ? ' (Manual)' : ' (Active)');
             document.getElementById('refreshInfo').textContent = 
-                \`⏱️ Auto refresh: \${secondsUntilRefresh}s\` + (isPaused ? ' (Paused)' : ' (Active)');
+                \`⏱️ Auto refresh: \${secondsUntilRefresh}s\` + status;
         }
         
         function displayMarketData(data) {
@@ -1717,7 +2181,8 @@ function getHTML() {
                 searchLosers: document.getElementById('searchLosers')?.value || '',
                 searchVolume: document.getElementById('searchVolume')?.value || '',
                 searchBuySignals: document.getElementById('searchBuySignals')?.value || '',
-                searchSellSignals: document.getElementById('searchSellSignals')?.value || ''
+                searchSellSignals: document.getElementById('searchSellSignals')?.value || '',
+                searchWatchlist: document.getElementById('searchWatchlist')?.value || ''
             };
             
             // Save scroll positions to prevent jump during refresh
@@ -1727,7 +2192,8 @@ function getHTML() {
                 losers: document.querySelector('#losers .table-wrapper')?.scrollTop || 0,
                 volume: document.querySelector('#volume .table-wrapper')?.scrollTop || 0,
                 buySignals: document.querySelector('#buySignalsTable')?.closest('.table-wrapper')?.scrollTop || 0,
-                sellSignals: document.querySelector('#sellSignalsTable')?.closest('.table-wrapper')?.scrollTop || 0
+                sellSignals: document.querySelector('#sellSignalsTable')?.closest('.table-wrapper')?.scrollTop || 0,
+                watchlist: document.querySelector('#watchlist .table-wrapper')?.scrollTop || 0
             };
             
             if (data.usdtIdrRate) {
@@ -1743,8 +2209,10 @@ function getHTML() {
             document.getElementById('gainersCount').textContent = data.stats.totalGainers || 0;
             document.getElementById('losersCount').textContent = data.stats.totalLosers || 0;
             document.getElementById('volumeCount').textContent = data.stats.totalVolumeAssets || 0;
+            document.getElementById('watchlistCount').textContent = watchlist.length;
             
             updateAllMarketsTable(data.tickers, previousMarketData ? previousMarketData.tickers : null);
+            updateWatchlistTable(data.tickers, previousMarketData ? previousMarketData.tickers : null);
             
             if (data.topGainers && data.topGainers.length > 0) {
                 updateGainersSection(data.topGainers, previousMarketData ? previousMarketData.topGainers : null);
@@ -1764,6 +2232,7 @@ function getHTML() {
             const searchVolumeEl = document.getElementById('searchVolume');
             const searchBuySignalsEl = document.getElementById('searchBuySignals');
             const searchSellSignalsEl = document.getElementById('searchSellSignals');
+            const searchWatchlistEl = document.getElementById('searchWatchlist');
             
             if (searchBoxEl) searchBoxEl.value = searchValues.searchBox;
             if (searchGainersEl) searchGainersEl.value = searchValues.searchGainers;
@@ -1771,6 +2240,7 @@ function getHTML() {
             if (searchVolumeEl) searchVolumeEl.value = searchValues.searchVolume;
             if (searchBuySignalsEl) searchBuySignalsEl.value = searchValues.searchBuySignals;
             if (searchSellSignalsEl) searchSellSignalsEl.value = searchValues.searchSellSignals;
+            if (searchWatchlistEl) searchWatchlistEl.value = searchValues.searchWatchlist;
             
             // Re-apply filters if there were search values
             if (searchValues.searchBox) filterTable();
@@ -1779,6 +2249,7 @@ function getHTML() {
             if (searchValues.searchVolume) filterVolumeTable();
             if (searchValues.searchBuySignals) filterBuySignalsTable();
             if (searchValues.searchSellSignals) filterSellSignalsTable();
+            if (searchValues.searchWatchlist) filterWatchlistTable();
             
             previousMarketData = JSON.parse(JSON.stringify(data));
             
@@ -1790,6 +2261,7 @@ function getHTML() {
                 const volumeWrapper = document.querySelector('#volume .table-wrapper');
                 const buySignalsWrapper = document.querySelector('#buySignalsTable')?.closest('.table-wrapper');
                 const sellSignalsWrapper = document.querySelector('#sellSignalsTable')?.closest('.table-wrapper');
+                const watchlistWrapper = document.querySelector('#watchlist .table-wrapper');
                 
                 if (allMarketsWrapper) allMarketsWrapper.scrollTop = scrollPositions.allMarkets;
                 if (gainersWrapper) gainersWrapper.scrollTop = scrollPositions.gainers;
@@ -1797,6 +2269,7 @@ function getHTML() {
                 if (volumeWrapper) volumeWrapper.scrollTop = scrollPositions.volume;
                 if (buySignalsWrapper) buySignalsWrapper.scrollTop = scrollPositions.buySignals;
                 if (sellSignalsWrapper) sellSignalsWrapper.scrollTop = scrollPositions.sellSignals;
+                if (watchlistWrapper) watchlistWrapper.scrollTop = scrollPositions.watchlist;
             });
         }
         
@@ -1826,24 +2299,39 @@ function getHTML() {
                 });
             }
             
-            const buySignals = tickers
+            // Apply filters to tickers
+            let filteredTickers = filterByPairType(tickers, activePairFilter);
+            filteredTickers = filteredTickers.filter(t => t.volume >= minVolumeFilter);
+            
+            const buySignals = filteredTickers
                 .filter(t => t.signals[selectedTimeframe] && t.signals[selectedTimeframe].type === 'BUY')
+                .filter(t => t.signals[selectedTimeframe].score >= minScoreFilter)
                 .sort((a, b) => b.signals[selectedTimeframe].score - a.signals[selectedTimeframe].score);
             
-            const sellSignals = tickers
+            const sellSignals = filteredTickers
                 .filter(t => t.signals[selectedTimeframe] && t.signals[selectedTimeframe].type === 'SELL')
+                .filter(t => t.signals[selectedTimeframe].score >= minScoreFilter)
                 .sort((a, b) => b.signals[selectedTimeframe].score - a.signals[selectedTimeframe].score);
             
-            document.getElementById('buySignalsCount').textContent = buySignals.length;
-            document.getElementById('sellSignalsCount').textContent = sellSignals.length;
+            // Apply signal type filter
+            let displayBuySignals = buySignals;
+            let displaySellSignals = sellSignals;
+            if (signalTypeFilter === 'buy') {
+                displaySellSignals = [];
+            } else if (signalTypeFilter === 'sell') {
+                displayBuySignals = [];
+            }
+            
+            document.getElementById('buySignalsCount').textContent = displayBuySignals.length;
+            document.getElementById('sellSignalsCount').textContent = displaySellSignals.length;
             
             const buyBody = document.getElementById('buySignalsBody');
             buyBody.innerHTML = '';
             
-            if (buySignals.length === 0) {
+            if (displayBuySignals.length === 0) {
                 buyBody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#9ca3af;">No buy signal for this timeframe</td></tr>';
             } else {
-                buySignals.forEach((ticker, index) => {
+                displayBuySignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
                     const prevTicker = prevMap[ticker.pair];
                     
@@ -1932,10 +2420,10 @@ function getHTML() {
             const sellBody = document.getElementById('sellSignalsBody');
             sellBody.innerHTML = '';
             
-            if (sellSignals.length === 0) {
+            if (displaySellSignals.length === 0) {
                 sellBody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#9ca3af;">No sell signals for this timeframe</td></tr>';
             } else {
-                sellSignals.forEach((ticker, index) => {
+                displaySellSignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
                     const prevTicker = prevMap[ticker.pair];
                     
@@ -2534,6 +3022,92 @@ function getHTML() {
             }
         }
         
+        function filterWatchlistTable() {
+            const input = document.getElementById('searchWatchlist').value.toUpperCase();
+            const tbody = document.getElementById('watchlistBody');
+            const rows = tbody.getElementsByTagName('tr');
+            
+            for (let row of rows) {
+                const pairCell = row.getElementsByTagName('td')[1];
+                if (pairCell) {
+                    const pairText = pairCell.textContent || pairCell.innerText;
+                    row.style.display = pairText.toUpperCase().indexOf(input) > -1 ? '' : 'none';
+                }
+            }
+        }
+        
+        function updateWatchlistTable(tickers, previousTickers) {
+            const tbody = document.getElementById('watchlistBody');
+            tbody.innerHTML = '';
+            
+            const watchlistTickers = tickers.filter(t => watchlist.includes(t.pair));
+            document.getElementById('watchlistTableCount').textContent = watchlistTickers.length;
+            
+            if (watchlistTickers.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="7" style="text-align:center;color:#9ca3af;">No pairs in watchlist. Click ☆ to add pairs.</td></tr>';
+                return;
+            }
+            
+            const prevMap = {};
+            if (previousTickers && Array.isArray(previousTickers)) {
+                previousTickers.forEach(t => {
+                    prevMap[t.pair] = t;
+                });
+            }
+            
+            watchlistTickers.forEach((ticker) => {
+                const prevTicker = prevMap[ticker.pair];
+                let priceFlash = '';
+                let changeFlash = '';
+                
+                if (prevTicker) {
+                    if (ticker.last > prevTicker.last) {
+                        priceFlash = 'flash-up';
+                    } else if (ticker.last < prevTicker.last) {
+                        priceFlash = 'flash-down';
+                    }
+                    
+                    if (ticker.priceChangePercent > prevTicker.priceChangePercent) {
+                        changeFlash = 'flash-up';
+                    } else if (ticker.priceChangePercent < prevTicker.priceChangePercent) {
+                        changeFlash = 'flash-down';
+                    }
+                }
+                
+                const pairDisplay = ticker.isUsdtPair ? 
+                    \`<strong>\${ticker.pair.toUpperCase()}</strong><span class="usdt-badge">USDT</span>\` : 
+                    \`<strong>\${ticker.pair.toUpperCase()}</strong>\`;
+                
+                const priceIndicator = getPriceIndicator(ticker);
+                const priceColorClass = ticker.priceChangePercent >= 0 ? 'positive' : 'negative';
+                
+                const row = tbody.insertRow();
+                row.innerHTML = \`
+                    <td>
+                        <button class="watchlist-btn active" onclick="toggleWatchlist('\${ticker.pair}')">★</button>
+                    </td>
+                    <td data-value="\${ticker.pair}">\${pairDisplay}</td>
+                    <td data-value="\${ticker.last}" class="\${priceColorClass} \${priceFlash}">
+                        \${priceIndicator} \${formatPrice(ticker.last)}
+                    </td>
+                    <td data-value="\${ticker.priceChangePercent}" class="\${ticker.priceChangePercent >= 0 ? 'positive' : 'negative'} \${changeFlash}">
+                        \${ticker.priceChangePercent >= 0 ? '▲' : '▼'} \${Math.abs(ticker.priceChangePercent).toFixed(2)}%
+                    </td>
+                    <td data-value="\${ticker.high}">\${formatPrice(ticker.high)}</td>
+                    <td data-value="\${ticker.low}">\${formatPrice(ticker.low)}</td>
+                    <td data-value="\${ticker.volume}">\${formatVolume(ticker.volume)}</td>
+                \`;
+                
+                setTimeout(() => {
+                    row.querySelectorAll('.flash-up, .flash-down').forEach(cell => {
+                        cell.classList.remove('flash-up', 'flash-down');
+                    });
+                }, 800);
+            });
+            
+            reapplySortIfActive('watchlistTable');
+        }
+        
         function formatPrice(value) {
             if (!value || value === 0) return 'Rp 0';
             
@@ -2597,11 +3171,21 @@ function getHTML() {
             }).format(value);
         }
         
+        // Initialize refresh interval from saved value or default
+        document.getElementById('refreshInterval').value = refreshInterval;
+        
+        // Set up event listeners for refresh controls
+        document.getElementById('refreshInterval').addEventListener('change', (e) => {
+            setRefreshInterval(parseInt(e.target.value));
+        });
+        
         loadMarketData();
         countdownInterval = setInterval(updateCountdown, 1000);
+        setRefreshInterval(refreshInterval);
         
         window.addEventListener('beforeunload', () => {
             if (countdownInterval) clearInterval(countdownInterval);
+            if (refreshIntervalId) clearInterval(refreshIntervalId);
         });
     </script>
 </body>
