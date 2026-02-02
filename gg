@@ -2241,7 +2241,7 @@ function getHTML() {
             buyBody.innerHTML = '';
             
             if (buySignals.length === 0) {
-                buyBody.innerHTML = '<tr><td colspan="12" style="text-align:center;color:#9ca3af;">No buy signals for this timeframe</td></tr>';
+                buyBody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:#9ca3af;">No buy signals for this timeframe</td></tr>';
             } else {
                 buySignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
@@ -2345,7 +2345,7 @@ function getHTML() {
             sellBody.innerHTML = '';
             
             if (sellSignals.length === 0) {
-                sellBody.innerHTML = '<tr><td colspan="12" style="text-align:center;color:#9ca3af;">No sell signals for this timeframe</td></tr>';
+                sellBody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:#9ca3af;">No sell signals for this timeframe</td></tr>';
             } else {
                 sellSignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
