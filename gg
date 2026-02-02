@@ -333,7 +333,7 @@ function analyzeSignalAdvanced(ticker, avgVolume, timeframe = '1h') {
   const finalScore = Math.min(score, 100);
   
   // Determine recommendation based on score and type
-  let recommendation = 'WAIT';
+  let recommendation = 'NEUTRAL';
   if (type === 'BUY') {
     if (finalScore >= 90) {
       recommendation = 'BUY NOW';           // Eksekusi segera
