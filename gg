@@ -945,6 +945,202 @@ function getHTML() {
             display: block;
         }
         
+        /* ============================================================
+           NEW FEATURES STYLES
+           ============================================================ */
+        /* Pair Filter */
+        .pair-filter {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .pair-filter-btn {
+            padding: 8px 16px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #9ca3af;
+            font-size: var(--font-sm);
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .pair-filter-btn:hover {
+            border-color: #4ade80;
+            color: #4ade80;
+        }
+        .pair-filter-btn.active {
+            background: #4ade80;
+            color: #0f0f1e;
+            border-color: #4ade80;
+        }
+        .pair-filter-btn.idr-active {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        .pair-filter-btn.usdt-active {
+            background: #fbbf24;
+            color: #0f0f1e;
+            border-color: #fbbf24;
+        }
+        
+        /* Filter Controls */
+        .filter-controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            padding: 15px;
+            background: #0f0f1e;
+            border-radius: 8px;
+            border: 1px solid #2a2a3e;
+        }
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .filter-group label {
+            font-size: var(--font-sm);
+            color: #9ca3af;
+        }
+        .filter-group select {
+            padding: 8px 12px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: var(--font-sm);
+            cursor: pointer;
+        }
+        .filter-group select:focus {
+            outline: none;
+            border-color: #4ade80;
+        }
+        
+        /* Watchlist Button */
+        .watchlist-btn {
+            background: transparent;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #6b7280;
+            transition: all 0.2s;
+            padding: 5px;
+        }
+        .watchlist-btn:hover {
+            color: #fbbf24;
+            transform: scale(1.2);
+        }
+        .watchlist-btn.active {
+            color: #fbbf24;
+        }
+        
+        /* Risk Badge */
+        .risk-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: var(--font-xs);
+            font-weight: bold;
+        }
+        .risk-high {
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            border: 1px solid #ef4444;
+        }
+        .risk-medium {
+            background: rgba(245, 158, 11, 0.2);
+            color: #f59e0b;
+            border: 1px solid #f59e0b;
+        }
+        .risk-low {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+            border: 1px solid #22c55e;
+        }
+        
+        /* Targets Info */
+        .targets-info {
+            background: #0f0f1e;
+            border: 1px solid #2a2a3e;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 8px;
+        }
+        .target-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 4px 0;
+            font-size: var(--font-sm);
+        }
+        .target-label {
+            color: #9ca3af;
+        }
+        .target-value {
+            font-weight: 600;
+        }
+        .target-row.stop-loss {
+            border-bottom: 1px solid #2a2a3e;
+            padding-bottom: 8px;
+            margin-bottom: 4px;
+        }
+        
+        /* Refresh Controls */
+        .refresh-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .refresh-controls label {
+            color: #9ca3af;
+            font-size: var(--font-sm);
+        }
+        .refresh-controls select {
+            padding: 6px 12px;
+            background: #1a1a2e;
+            border: 1px solid #2a2a3e;
+            border-radius: 6px;
+            color: #e0e0e0;
+            font-size: var(--font-sm);
+        }
+        .refresh-btn, .pause-btn {
+            padding: 6px 12px;
+            border-radius: 6px;
+            border: 1px solid #2a2a3e;
+            cursor: pointer;
+            font-size: var(--font-sm);
+            transition: all 0.2s;
+        }
+        .refresh-btn {
+            background: #22c55e;
+            color: white;
+            border-color: #22c55e;
+        }
+        .refresh-btn:hover {
+            background: #16a34a;
+        }
+        .pause-btn {
+            background: #1a1a2e;
+            color: #9ca3af;
+        }
+        .pause-btn:hover {
+            border-color: #f59e0b;
+            color: #f59e0b;
+        }
+        .pause-btn.paused {
+            background: #f59e0b;
+            color: white;
+            border-color: #f59e0b;
+        }
+        
         @media (max-width: 768px) {
             h1 { font-size: 1.8em; }
             table { font-size: 12px; }
@@ -1451,6 +1647,60 @@ function getHTML() {
                         <button class="tf-btn" onclick="selectTimeframe('1m')">1m</button>
                     </div>
                     
+                    <!-- Pair Type Filter -->
+                    <div class="pair-filter">
+                        <button class="pair-filter-btn active" onclick="selectPairFilter('all')">ALL</button>
+                        <button class="pair-filter-btn" onclick="selectPairFilter('idr')">IDR PAIRS</button>
+                        <button class="pair-filter-btn" onclick="selectPairFilter('usdt')">USDT PAIRS</button>
+                    </div>
+                    
+                    <!-- Additional Filters -->
+                    <div class="filter-controls">
+                        <div class="filter-group">
+                            <label>Min Volume (IDR):</label>
+                            <select id="minVolumeFilter" onchange="applyFilters()">
+                                <option value="0">All</option>
+                                <option value="100000000">100 Juta+</option>
+                                <option value="500000000">500 Juta+</option>
+                                <option value="1000000000">1 Milyar+</option>
+                                <option value="5000000000">5 Milyar+</option>
+                                <option value="10000000000">10 Milyar+</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Signal Type:</label>
+                            <select id="signalTypeFilter" onchange="applyFilters()">
+                                <option value="all">All Signals</option>
+                                <option value="buy">BUY Only</option>
+                                <option value="sell">SELL Only</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>Min Score:</label>
+                            <select id="minScoreFilter" onchange="applyFilters()">
+                                <option value="0">All Scores</option>
+                                <option value="30">30+</option>
+                                <option value="50">50+</option>
+                                <option value="70">70+</option>
+                                <option value="90">90+</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Refresh Controls -->
+                    <div class="refresh-controls">
+                        <label>Auto Refresh:</label>
+                        <select id="refreshInterval" onchange="setRefreshInterval(parseInt(this.value))">
+                            <option value="5000">5 detik</option>
+                            <option value="10000" selected>10 detik</option>
+                            <option value="30000">30 detik</option>
+                            <option value="60000">1 menit</option>
+                            <option value="0">Manual</option>
+                        </select>
+                        <button id="refreshNowBtn" class="refresh-btn" onclick="loadMarketData()">🔄 Refresh Now</button>
+                        <button id="pauseRefreshBtn" class="pause-btn" onclick="togglePause()">⏸️ Pause</button>
+                    </div>
+                    
                     <!-- Buy Signals Content -->
                     <div id="buySignalsContent" class="signal-content active">
                         <input type="text" id="searchBuySignals" class="search-box" placeholder="🔍 Search buy signals..." onkeyup="filterBuySignalsTable()">
@@ -1459,14 +1709,16 @@ function getHTML() {
                                 <thead>
                                     <tr>
                                         <th class="sortable" onclick="sortTable('buySignalsTable', 0, 'number')">Rank</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 1, 'string')">Pair</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 2, 'number')">Price</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 3, 'number')">24h Change</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 4, 'number')">Score</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 5, 'string')">Recommendation</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 6, 'string')">Technical Indicators</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 7, 'string')">Signals</th>
-                                        <th class="sortable" onclick="sortTable('buySignalsTable', 8, 'number')">Volume</th>
+                                        <th>⭐</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 2, 'string')">Pair</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 3, 'number')">Price</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 4, 'number')">24h Change</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 5, 'number')">Score</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 6, 'string')">Recommendation</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 7, 'string')">Technical Indicators</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 8, 'string')">Signals</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 9, 'number')">Volume</th>
+                                        <th class="sortable" onclick="sortTable('buySignalsTable', 10, 'string')">Risk</th>
                                     </tr>
                                 </thead>
                                 <tbody id="buySignalsBody"></tbody>
@@ -1482,14 +1734,16 @@ function getHTML() {
                                 <thead>
                                     <tr>
                                         <th class="sortable" onclick="sortTable('sellSignalsTable', 0, 'number')">Rank</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 1, 'string')">Pair</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 2, 'number')">Price</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 3, 'number')">24h Change</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 4, 'number')">Score</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 5, 'string')">Recommendation</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 6, 'string')">Technical Indicators</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 7, 'string')">Signals</th>
-                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 8, 'number')">Volume</th>
+                                        <th>⭐</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 2, 'string')">Pair</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 3, 'number')">Price</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 4, 'number')">24h Change</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 5, 'number')">Score</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 6, 'string')">Recommendation</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 7, 'string')">Technical Indicators</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 8, 'string')">Signals</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 9, 'number')">Volume</th>
+                                        <th class="sortable" onclick="sortTable('sellSignalsTable', 10, 'string')">Risk</th>
                                     </tr>
                                 </thead>
                                 <tbody id="sellSignalsBody"></tbody>
@@ -1607,6 +1861,124 @@ function getHTML() {
         let isPaused = false;
         let lastInteractionTime = Date.now();
         let scrollTimeout;
+        
+        // New feature variables
+        let selectedPairFilter = 'all';
+        let watchlist = JSON.parse(localStorage.getItem('indodax_watchlist') || '[]');
+        let signalHistory = JSON.parse(localStorage.getItem('indodax_signal_history') || '{}');
+        let refreshIntervalId = null;
+        let refreshIntervalTime = 10000; // default 10 seconds
+        
+        // Watchlist functions
+        function toggleWatchlist(pair) {
+            const index = watchlist.indexOf(pair);
+            if (index > -1) {
+                watchlist.splice(index, 1);
+            } else {
+                watchlist.push(pair);
+            }
+            localStorage.setItem('indodax_watchlist', JSON.stringify(watchlist));
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
+        
+        function isInWatchlist(pair) {
+            return watchlist.includes(pair);
+        }
+        
+        // Pair filter function
+        function selectPairFilter(filter) {
+            selectedPairFilter = filter;
+            document.querySelectorAll('.pair-filter-btn').forEach(btn => {
+                btn.classList.remove('active', 'idr-active', 'usdt-active');
+            });
+            event.target.classList.add('active');
+            if (filter === 'idr') {
+                event.target.classList.add('idr-active');
+            } else if (filter === 'usdt') {
+                event.target.classList.add('usdt-active');
+            }
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
+        
+        // Filter pair by type
+        function filterByPairType(tickers, pairType) {
+            if (pairType === 'all') return tickers;
+            if (pairType === 'idr') return tickers.filter(t => t.pair.endsWith('_idr'));
+            if (pairType === 'usdt') return tickers.filter(t => t.pair.endsWith('_usdt') || t.pair.includes('usdt'));
+            return tickers;
+        }
+        
+        // Apply all filters
+        function applyFilters() {
+            if (marketData) {
+                displayMarketData(marketData);
+            }
+        }
+        
+        // Calculate risk level
+        function calculateRiskLevel(ticker, signal, avgVolume) {
+            let riskScore = 0;
+            
+            // Volatility check
+            const volatility = ((ticker.high - ticker.low) / ticker.low) * 100;
+            if (volatility > 20) riskScore += 3;
+            else if (volatility > 10) riskScore += 2;
+            else if (volatility > 5) riskScore += 1;
+            
+            // Volume check
+            const volumeRatio = ticker.volume / avgVolume;
+            if (volumeRatio < 0.5) riskScore += 2;
+            else if (volumeRatio < 1) riskScore += 1;
+            
+            // Spread check
+            if (ticker.buy > 0 && ticker.sell > 0) {
+                const spread = ((ticker.sell - ticker.buy) / ticker.buy) * 100;
+                if (spread > 5) riskScore += 2;
+                else if (spread > 2) riskScore += 1;
+            }
+            
+            // Determine risk level
+            if (riskScore >= 5) return { level: 'HIGH', color: '#ef4444', icon: '🔴', class: 'risk-high' };
+            if (riskScore >= 3) return { level: 'MEDIUM', color: '#f59e0b', icon: '🟡', class: 'risk-medium' };
+            return { level: 'LOW', color: '#22c55e', icon: '🟢', class: 'risk-low' };
+        }
+        
+        // Refresh interval control
+        function setRefreshInterval(interval) {
+            refreshIntervalTime = interval;
+            if (refreshIntervalId) {
+                clearInterval(refreshIntervalId);
+                refreshIntervalId = null;
+            }
+            if (interval > 0 && !isPaused) {
+                refreshIntervalId = setInterval(() => loadMarketData(true), interval);
+            }
+            localStorage.setItem('indodax_refresh_interval', interval);
+        }
+        
+        // Toggle pause/resume
+        function togglePause() {
+            isPaused = !isPaused;
+            const btn = document.getElementById('pauseRefreshBtn');
+            if (isPaused) {
+                if (refreshIntervalId) {
+                    clearInterval(refreshIntervalId);
+                    refreshIntervalId = null;
+                }
+                btn.innerHTML = '▶️ Resume';
+                btn.classList.add('paused');
+            } else {
+                if (refreshIntervalTime > 0) {
+                    refreshIntervalId = setInterval(() => loadMarketData(true), refreshIntervalTime);
+                }
+                btn.innerHTML = '⏸️ Pause';
+                btn.classList.remove('paused');
+            }
+        }
         
         function switchSignalTab(tab) {
             activeSignalTab = tab;
@@ -1826,13 +2198,41 @@ function getHTML() {
                 });
             }
             
-            const buySignals = tickers
+            // Apply pair filter
+            let filteredTickers = filterByPairType(tickers, selectedPairFilter);
+            
+            // Apply additional filters
+            const minVolume = parseInt(document.getElementById('minVolumeFilter')?.value || '0');
+            const signalType = document.getElementById('signalTypeFilter')?.value || 'all';
+            const minScore = parseInt(document.getElementById('minScoreFilter')?.value || '0');
+            
+            if (minVolume > 0) {
+                filteredTickers = filteredTickers.filter(t => t.volume >= minVolume);
+            }
+            
+            let buySignals = filteredTickers
                 .filter(t => t.signals[selectedTimeframe] && t.signals[selectedTimeframe].type === 'BUY')
                 .sort((a, b) => b.signals[selectedTimeframe].score - a.signals[selectedTimeframe].score);
             
-            const sellSignals = tickers
+            let sellSignals = filteredTickers
                 .filter(t => t.signals[selectedTimeframe] && t.signals[selectedTimeframe].type === 'SELL')
                 .sort((a, b) => b.signals[selectedTimeframe].score - a.signals[selectedTimeframe].score);
+            
+            // Apply min score filter
+            if (minScore > 0) {
+                buySignals = buySignals.filter(t => t.signals[selectedTimeframe].score >= minScore);
+                sellSignals = sellSignals.filter(t => t.signals[selectedTimeframe].score >= minScore);
+            }
+            
+            // Apply signal type filter
+            if (signalType === 'buy') {
+                sellSignals = [];
+            } else if (signalType === 'sell') {
+                buySignals = [];
+            }
+            
+            // Calculate average volume for risk calculation
+            const avgVolume = tickers.reduce((sum, t) => sum + t.volume, 0) / tickers.length;
             
             document.getElementById('buySignalsCount').textContent = buySignals.length;
             document.getElementById('sellSignalsCount').textContent = sellSignals.length;
@@ -1841,7 +2241,7 @@ function getHTML() {
             buyBody.innerHTML = '';
             
             if (buySignals.length === 0) {
-                buyBody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#9ca3af;">No buy signal for this timeframe</td></tr>';
+                buyBody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:#9ca3af;">No buy signals for this timeframe</td></tr>';
             } else {
                 buySignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
@@ -1888,10 +2288,19 @@ function getHTML() {
                     const technicalIndicatorsText = \`RSI:\${ind.rsi} StochRSI:\${ind.stochRSI} BB:\${ind.bbPosition} Vol:\${ind.volumeRatio}x Volatility:\${ind.volatility}%\`;
                     const signalsText = signal.signals.join(' ');
                     
+                    // Calculate risk level
+                    const riskLevel = calculateRiskLevel(ticker, signal, avgVolume);
+                    
                     const row = buyBody.insertRow();
                     row.innerHTML = \`
                         <td data-value="\${index + 1}">\${index + 1}</td>
-                        <td data-value="\${ticker.pair}">\${pairDisplay}<span class="tf-badge">\${signal.timeframe}</span></td>
+                        <td>
+                            <button class="watchlist-btn \${isInWatchlist(ticker.pair) ? 'active' : ''}" 
+                                    onclick="toggleWatchlist('\${ticker.pair}')">
+                                \${isInWatchlist(ticker.pair) ? '★' : '☆'}
+                            </button>
+                        </td>
+                        <td data-value="\${ticker.pair}">\${pairDisplay}</td>
                         <td data-value="\${ticker.last}" class="\${priceColorClass} \${priceFlash}">
                             \${priceIndicator} \${formatPrice(ticker.last)}
                         </td>
@@ -1919,6 +2328,9 @@ function getHTML() {
                             </div>
                         </td>
                         <td data-value="\${ticker.volume}" class="\${volumeFlash}">\${formatVolume(ticker.volume)}</td>
+                        <td data-value="\${riskLevel.level}">
+                            <span class="risk-badge \${riskLevel.class}">\${riskLevel.icon} \${riskLevel.level}</span>
+                        </td>
                     \`;
                     
                     setTimeout(() => {
@@ -1933,7 +2345,7 @@ function getHTML() {
             sellBody.innerHTML = '';
             
             if (sellSignals.length === 0) {
-                sellBody.innerHTML = '<tr><td colspan="9" style="text-align:center;color:#9ca3af;">No sell signals for this timeframe</td></tr>';
+                sellBody.innerHTML = '<tr><td colspan="11" style="text-align:center;color:#9ca3af;">No sell signals for this timeframe</td></tr>';
             } else {
                 sellSignals.forEach((ticker, index) => {
                     const signal = ticker.signals[selectedTimeframe];
@@ -1980,10 +2392,19 @@ function getHTML() {
                     const technicalIndicatorsText = \`RSI:\${ind.rsi} StochRSI:\${ind.stochRSI} BB:\${ind.bbPosition} Vol:\${ind.volumeRatio}x Volatility:\${ind.volatility}%\`;
                     const signalsText = signal.signals.join(' ');
                     
+                    // Calculate risk level
+                    const riskLevel = calculateRiskLevel(ticker, signal, avgVolume);
+                    
                     const row = sellBody.insertRow();
                     row.innerHTML = \`
                         <td data-value="\${index + 1}">\${index + 1}</td>
-                        <td data-value="\${ticker.pair}">\${pairDisplay}<span class="tf-badge">\${signal.timeframe}</span></td>
+                        <td>
+                            <button class="watchlist-btn \${isInWatchlist(ticker.pair) ? 'active' : ''}" 
+                                    onclick="toggleWatchlist('\${ticker.pair}')">
+                                \${isInWatchlist(ticker.pair) ? '★' : '☆'}
+                            </button>
+                        </td>
+                        <td data-value="\${ticker.pair}">\${pairDisplay}</td>
                         <td data-value="\${ticker.last}" class="\${priceColorClass} \${priceFlash}">
                             \${priceIndicator} \${formatPrice(ticker.last)}
                         </td>
@@ -2011,6 +2432,9 @@ function getHTML() {
                             </div>
                         </td>
                         <td data-value="\${ticker.volume}" class="\${volumeFlash}">\${formatVolume(ticker.volume)}</td>
+                        <td data-value="\${riskLevel.level}">
+                            <span class="risk-badge \${riskLevel.class}">\${riskLevel.icon} \${riskLevel.level}</span>
+                        </td>
                     \`;
                     
                     setTimeout(() => {
@@ -2597,11 +3021,27 @@ function getHTML() {
             }).format(value);
         }
         
+        // Initialize refresh interval on page load
+        const savedInterval = localStorage.getItem('indodax_refresh_interval');
+        if (savedInterval) {
+            refreshIntervalTime = parseInt(savedInterval);
+            const selectEl = document.getElementById('refreshInterval');
+            if (selectEl) {
+                selectEl.value = savedInterval;
+            }
+        }
+        
         loadMarketData();
         countdownInterval = setInterval(updateCountdown, 1000);
         
+        // Start auto refresh
+        if (refreshIntervalTime > 0 && !isPaused) {
+            refreshIntervalId = setInterval(() => loadMarketData(true), refreshIntervalTime);
+        }
+        
         window.addEventListener('beforeunload', () => {
             if (countdownInterval) clearInterval(countdownInterval);
+            if (refreshIntervalId) clearInterval(refreshIntervalId);
         });
     </script>
 </body>
