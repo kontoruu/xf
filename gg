@@ -2299,6 +2299,10 @@ function getHTML() {
                 });
             }
             
+            // Calculate average volume for risk assessment
+            const totalVolume = tickers.reduce((sum, t) => sum + t.volume, 0);
+            const avgVolume = totalVolume / tickers.length;
+            
             // Apply filters to tickers
             let filteredTickers = filterByPairType(tickers, activePairFilter);
             filteredTickers = filteredTickers.filter(t => t.volume >= minVolumeFilter);
