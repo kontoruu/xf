@@ -333,26 +333,32 @@ function analyzeSignalAdvanced(ticker, avgVolume, timeframe = '1h') {
   const finalScore = Math.min(score, 100);
   
   // Determine recommendation based on score and type
-  let recommendation = 'HOLD';
+  // Opsi 1: Sistem 5 Tier (Lebih Granular)
+  let recommendation = 'WAIT';
+  
   if (type === 'BUY') {
     if (finalScore >= 90) {
-      recommendation = 'BUY NOW';
+      recommendation = 'BUY NOW';        // 🚀 Eksekusi segera, sinyal sangat kuat
     } else if (finalScore >= 70) {
-      recommendation = 'BUY STRONG';
-    } else if (finalScore >= 40) {
-      recommendation = 'HOLD';
+      recommendation = 'BUY STRONG';     // ✅ Sinyal kuat, beli dengan confidence
+    } else if (finalScore >= 50) {
+      recommendation = 'BUY WATCH';      // 👀 Pantau, siap-siap entry
+    } else if (finalScore >= 30) {
+      recommendation = 'ACCUMULATE';     // 📥 Cicil beli (DCA)
     } else {
-      recommendation = 'HOLD SIDEWAY';
+      recommendation = 'WAIT';           // ⏳ Tunggu momentum
     }
   } else if (type === 'SELL') {
     if (finalScore >= 90) {
-      recommendation = 'SELL NOW';
+      recommendation = 'SELL NOW';       // 🔴 Jual segera, sinyal sangat kuat
     } else if (finalScore >= 70) {
-      recommendation = 'SELL STRONG';
-    } else if (finalScore >= 40) {
-      recommendation = 'HOLD';
+      recommendation = 'SELL STRONG';    // ⚠️ Sinyal jual kuat
+    } else if (finalScore >= 50) {
+      recommendation = 'SELL WATCH';     // 👀 Pantau, siap-siap exit
+    } else if (finalScore >= 30) {
+      recommendation = 'DISTRIBUTE';     // 📤 Cicil jual
     } else {
-      recommendation = 'HOLD SIDEWAY';
+      recommendation = 'WAIT';           // ⏳ Tunggu konfirmasi
     }
   }
   
@@ -839,6 +845,26 @@ function getHTML() {
         }
         .recommendation-badge.sell-now {
             background: #ef4444;
+            color: white;
+        }
+        .recommendation-badge.buy-watch {
+            background: #84cc16;
+            color: white;
+        }
+        .recommendation-badge.sell-watch {
+            background: #fb923c;
+            color: white;
+        }
+        .recommendation-badge.accumulate {
+            background: #06b6d4;
+            color: white;
+        }
+        .recommendation-badge.distribute {
+            background: #f472b6;
+            color: white;
+        }
+        .recommendation-badge.wait {
+            background: #6b7280;
             color: white;
         }
         .loading {
