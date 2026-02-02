@@ -2058,10 +2058,6 @@ function getHTML() {
             loadMarketData(false);
         }
         
-        function refreshNow() {
-            loadMarketData(false);
-        }
-        
         function updateFilters() {
             minVolumeFilter = parseInt(document.getElementById('minVolumeFilter').value);
             signalTypeFilter = document.getElementById('signalTypeFilter').value;
